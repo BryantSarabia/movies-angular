@@ -1,0 +1,17 @@
+<div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+  <img
+    class="w-full h-64 object-cover"
+    [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+    alt="{{ movie.title }}"
+  />
+  <div class="p-4">
+    <h5 class="text-lg font-semibold text-gray-800">{{ movie.title }}</h5>
+    <p class="text-sm text-gray-600 truncate">{{ movie.overview }}</p>
+    <button
+      (click)="addToList()"
+      class="mt-4 w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-all"
+    >
+      Aggiungi
+    </button>
+  </div>
+</div>
