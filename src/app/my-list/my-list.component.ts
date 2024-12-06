@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { Movie } from '../models/movie.model';
-import { MovieListService } from '../services/movie-list.service';
-import { CardComponent } from '../card/card.component';
 import { NgFor } from '@angular/common';
-
+import { Component } from '@angular/core';
+import { CardComponent } from '../card/card.component';
+import { Movie } from '../models/movie.model';
+import { MovieListService } from '../services/movie-list-api.service';
 
 @Component({
   selector: 'app-my-list',
@@ -18,6 +17,6 @@ export class MyListComponent {
   constructor(private movieListService: MovieListService) {}
 
   ngOnInit() {
-    this.myMovies = this.movieListService.getUserMovies()
+    this.myMovies = this.movieListService.getUserMovies();
   }
 }

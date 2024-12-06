@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  searchQuery: string = 'F';
+  searchService = inject(SearchService);
+  searchQuery = '';
 
-  search() {}
+  search() {
+    this.searchService.publishToChannel(this.searchQuery);
+  }
 }
