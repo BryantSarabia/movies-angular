@@ -1,0 +1,21 @@
+<nav class="flex justify-between items-center bg-gray-800 text-white p-4 rounded-lg shadow-lg">
+  <ul class="flex space-x-6">
+    <li><a href="#" class="hover:text-gray-400 uppercase">Home</a></li>
+    <li><a href="#" class="hover:text-gray-400 uppercase hidden md:block">Film</a></li>
+    <li><a href="#" class="hover:text-gray-400 uppercase hidden md:block">Serie TV</a></li>
+    <li><a routerLink="/mia-lista" class="hover:text-gray-400 uppercase">La mia lista</a></li>
+  </ul>
+  <div class="flex items-center space-x-4">
+    <input 
+      [(ngModel)]="searchQuery" 
+      placeholder="Ricerca un film o una Serie TV" 
+      class="p-2 rounded-md border border-gray-300 text-black"
+    />
+    <button 
+      (click)="search()" 
+      class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-400 transition duration-200"
+    >
+      Cerca film
+    </button>
+  </div>
+</nav>
