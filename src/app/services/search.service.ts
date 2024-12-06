@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  private readonly channel = new BehaviorSubject<string>('F');
+  private readonly channel = new Subject<string>();
   private readonly readOnlyChanel$ = this.channel.asObservable();
   // private searchQuery = '';
 

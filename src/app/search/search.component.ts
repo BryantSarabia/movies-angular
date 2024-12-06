@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { startWith } from 'rxjs';
 import { CardComponent } from '../card/card.component';
 import { Movie } from '../models/movie.model';
 import { MovieListService } from '../services/movie-list-api.service';
@@ -24,7 +25,7 @@ export class SearchComponent implements OnInit {
    *  Quando arriva un nuovo dato, chiamiamo il nostro metodo search dandogli in pasto la search query
    */
   ngOnInit(): void {
-    this.readonlyChannel$.subscribe((searchQuery) => {
+    this.readonlyChannel$.pipe(startWith('F')).subscribe((searchQuery) => {
       this.moviesServices.getMovies(searchQuery, 1).subscribe(
         (response) => {
           this.movies = response.results;
